@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="kr.ac.kopo.dao.FundDAO">
+	<sql id="selectFund">
+		select name, type, scale, risk, region, yield, deviation from t_fund
+	</sql>
+	<sql id="selectFund2">
+		select name, type, scale, risk, region, yield, deviation from t_fund order by yield desc
+	</sql>
+	
+	<sql id="selectMyFund">
+		select accountno as accountNo, name, password, username as userName, investmoney as investMoney, valuationamount as valuationAmount, cumulativereturn as cumulativeReturn, 
+		to_char(startdate, 'yyyy-mm-dd') as startDate, to_char(enddate, 'yyyy-mm-dd') as endDate, term, to_char(lasttrading, 'yyyy-mm-dd') as lastTrading, savetype as saveType, linkaccount as linkAccount, autoredemption as autoRedemption
+		 from t_fund_account
+	</sql>
+	<sql id="selectMyAccount">
+		select accountno as accountNo, goodscode as goodsCode, password, userid as userId, balance, tranlimit as transLimit, status, efinance as eFinance, to_char(regdate, 'yyyy-mm-dd') as regDate from t_checking_account
+	</sql>
+	
+	
+	<insert id="insertFund" parameterType="FundAccountVO">
+		insert into t_fund_account
+		 values(#{accountNo}, #{name}, '1111', #{userName}, #{investMoney}, #{investMoney}, '0.00%', sysdate, sysdate+365, #{term}, sysdate, #{saveType}, #{linkAccount}, '신청')
+	</insert>
+	
+	<select id="getAllFund" resultType="FundVO">
+		<include refid="selectFund" />
+	</select>
+	
+	<select id="getRecommendFund" resultType="FundVO">
+		select * from (select * from t_fund order by yield desc) where rownum <![CDATA[ <= ]]> 5
+	</select>
+	
+	<select id="getAllMyFund" resultType="FundAccountVO" parameterType="string">
+		<include refid="selectMyFund" />
+		where username = #{userName}
+	</select>
+	
+	<select id="getMyAccount" resultType="string" parameterType="string">
+		select accountno as accountNo from t_checking_account where userid = #{userid}
+	</select>
+	
+	<select id="getAllMyAccount" resultType="CheckingAccountVO" parameterType="string">
+		<include refid="selectMyAccount" />
+		where userid = #{userid}
+	</select>
+	
+</mapper>

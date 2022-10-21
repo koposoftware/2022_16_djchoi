@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="kr.ac.kopo.dao.UserDAO">
+	<sql id="select">
+		select id, password, name, gender, tel1||'-'||tel2||'-'||tel3 as tel, email, id_num1||'-'||id_num2 as idNum, to_char(reg_date, 'YYYY/MM/DD') regDate, investtype from t_user
+	</sql>
+	<sql id="selectReserve">
+		select rdate, rtime, title, content, username, teller from t_reserve
+	</sql>
+	<sql id="selectRoom">
+		select roomid, title, teller, username, roomcondition, regdate from t_room
+	</sql>
+	
+	
+	<select id="login" parameterType="UserVO" resultType="UserVO">
+		<include refid="select" />
+		where id=#{id} and password=#{password}
+	</select>
+	
+	
+	<insert id="inputReview" parameterType="ReviewVO">
+		insert into t_review(no, title, userName, teller, content)
+		 values(seq_con_review_no.nextval, #{title}, #{userName}, #{teller}, #{content})
+	</insert>
+	
+	
+	<select id="checkReserve" parameterType="string" resultType="ReserveVO">
+		<include refid="selectReserve" />
+		where username=#{userName}
+	</select>
+	
+	<select id="getRooms" resultType="RoomVO">
+		<include refid="selectRoom" />
+		where roomcondition = '대기'
+	</select>
+	
+	<update id="enterRoom" parameterType="map">
+		update t_room set username = #{userName} where roomid = #{roomId}
+	</update>
+	
+	<update id="inputInvestType" parameterType="string">
+		update t_user set investtype = #{investType} where id = #{id}
+	</update>
+	
+	<update id="updateRoom" parameterType="string">
+		update t_room set roomcondition = '완료', regdate = sysdate where roomid = #{roomId}
+	</update>
+	
+</mapper>

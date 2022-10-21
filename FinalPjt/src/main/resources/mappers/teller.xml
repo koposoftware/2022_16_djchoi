@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="kr.ac.kopo.dao.TellerDAO">
+	<sql id="select">
+		select no, id, password, name, dept, tel, like_cnt as likecnt from t_emp
+	</sql>
+	<sql id="selectRecord">
+		select no, userid as userName, teller, title, subtitle, content, to_char(regdate, 'YYYY-MM-DD HH:mm:ss') as regdate from t_record
+	</sql>
+	<sql id="selectRoom">
+		select roomid, teller, username, title from t_room
+	</sql>
+
+	<select id="getAllTeller" resultType="TellerVO">
+		<include refid="select" />
+		 where dept = #{title}
+	</select>
+
+	<select id="login" parameterType="TellerVO" resultType="TellerVO">
+		<include refid="select" />
+		where id=#{id} and password=#{password}
+	</select>
+	
+	<insert id="inputRocord" parameterType="RecordVO">
+		insert into t_record(no, userid, teller, title, subtitle, content)
+		 values(seq_con_record_no.nextval, #{userName}, #{teller}, #{title}, #{subtitle}, #{content})
+	</insert>
+	
+	<select id="selectByName" parameterType="String" resultType="RecordVO">
+		<include refid="selectRecord" />
+		where teller = #{tellerName}
+		order by regdate desc
+	</select>
+	
+	<select id="selectAll" resultType="RecordVO">
+		<include refid="selectRecord" />
+		order by regdate desc
+	</select>
+	
+	<insert id="makeRoom" parameterType="RoomVO">
+		insert into t_room(roomid, teller, title)
+		 values(#{roomId}, #{teller}, #{title})
+	</insert>
+	
+	
+</mapper>

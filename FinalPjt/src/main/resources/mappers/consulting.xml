@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="kr.ac.kopo.dao.ConsultingDAO">
+	<sql id="consulting">
+		select to_char(rdate, 'yyyy-mm-dd') as rDate, rtime as rTime, username as userName, title, content, teller from t_reserve
+	</sql>
+	
+	<sql id="consultingContent">
+		select roomId, username, tellername, speaker, regdate, msg from t_consulting_content
+	</sql>
+	
+	<sql id="review">
+		select no, title, username, teller, content, to_char(regdate, 'yyyy-mm-dd') regdate from t_review
+	</sql>
+	
+	
+	
+	<insert id="reserveConsulting" parameterType="ReserveVO">
+		insert into t_reserve
+		 values(#{rDate}, #{rTime}, #{title}, #{content}, #{userName}, #{teller})
+	</insert>
+	
+	<insert id="insertConsultingContent" parameterType="ConsultingContentVO">
+		insert into t_consulting_content
+		 values(#{roomId}, #{userName}, #{tellerName}, #{regDate}, #{speaker}, #{msg})
+	</insert>
+	
+	
+	<select id="getMyConsulting" resultType="ReserveVO" parameterType="string">
+		<include refid="consulting" />
+		 where teller = #{tellerName}
+	</select>
+	
+	<select id="getMyConsultingReserve" resultType="ReserveVO" parameterType="string">
+		<include refid="consulting" />
+		 where username = #{userName} and rdate > sysdate order by rDate
+	</select>
+	
+	<select id="getMyConsultingReview" resultType="ReviewVO" parameterType="string">
+		<include refid="review" />
+		 where username = #{userName} order by regdate
+	</select>
+	
+	
+	<select id="getConsultingContent" resultType="ConsultingContentVO" parameterType="ConsultingContentVO">
+		<include refid="consultingContent" />
+		 where roomid = #{roomId}
+		 order by regdate 
+	</select>
+	
+</mapper>
