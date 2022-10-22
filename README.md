@@ -25,8 +25,7 @@
 [발표자료<img src="최종ppt.png"/>](/최종ppt.pdf)<br>
 
 ## 시연 동영상 
-
-  <iframe width="424" height="238" src="https://youtu.be/SjWqHlg7PG8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  [![영상](영상사진.png)](https://youtu.be/SjWqHlg7PG8)
 
 
 # 4. 프로젝트 요약
