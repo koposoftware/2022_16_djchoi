@@ -53,7 +53,7 @@
 * OS : window10
 * Language : Java(1.8), HTML, CSS, Jacascript
 * Server : Apache Tomecat 9.0
-* Framework : Spring Boot, Mybatis, Bootstrap
+* Framework : Spring, Mybatis, Bootstrap
 * DB : Oracle19c
 * Tool : STS, Sqldeveloper
 * Etc : Git
