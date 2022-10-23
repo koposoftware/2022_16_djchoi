@@ -1,4 +1,4 @@
-# 원큐에 상담 어떻게 하나
+# 원  큐에 상담 어떻게 하나
 
 [프로젝트 홈페이지 - https://koposoftware.github.io/2022_16_djchoi/](https://koposoftware.github.io/2022_16_djchoi/)
 
@@ -15,17 +15,17 @@
 <br>
 
 # 2. 프로젝트 제안서
-[프로젝트 제안서<img src="제안서화면.png"/>](/2260341022_최덕재_제안서.pdf)<br>
+[프로젝트 제안서<img src="Img/제안서화면.png"/>](/files/2260341022_최덕재_제안서.pdf)<br>
  
 <br>
 
 # 3. 프로젝트 결과
 
 ## 발표 ppt 
-[발표자료<img src="최종ppt.png"/>](/최종프로젝트ppt.pdf)<br>
+[발표자료<img src="Img/최종ppt.png"/>](/files/최종프로젝트ppt.pdf)<br>
 
 ## 시연 동영상 
-  [![영상](영상사진.png)](https://youtu.be/SjWqHlg7PG8)
+  [![영상](Img/영상사진.png)](https://youtu.be/SjWqHlg7PG8)
 
 
 # 4. 프로젝트 요약
@@ -33,10 +33,10 @@
 
 ### 2) 주요기능
 **<손님>**
-<img src="손님.png"/><br>
+<img src="Img/손님.png"/><br>
 
 **<상담사>**
-<img src="상담사.png"/><br>
+<img src="Img/상담사.png"/><br>
 
 ### 3) 사용기술
 
@@ -53,24 +53,24 @@
 * OS : window10
 * Language : Java(1.8), HTML, CSS, Jacascript
 * Server : Apache Tomecat 9.0
-* Framework : Spring, Mybatis, Bootstrap
+* Framework : Spring Boot, Mybatis, Bootstrap
 * DB : Oracle19c
 * Tool : STS, Sqldeveloper
 * Etc : Git
 
 ### 5) 시스템 아키텍쳐
 
-<img src="아키텍쳐.png"/><br>
+<img src="Img/아키텍쳐.png"/><br>
 
 ### 6) ERD
 
-   <img src="최종_ERD.png"/><br>
+   <img src="Img/최종_ERD.png"/><br>
 
 # 5. 본인 소개
 
 본인 소개를 추가하세요
 
-|이름 |최덕재|![choi](/사진.jpg)|
+|이름 |최덕재|![choi](/Img/사진.jpg)|
 |연락처 | 202260341022(@)kopo.ac.kr| |
 |skill set| Frontend - HTML, CSS, Javascript| |
 | | Backend - Java, Python, Oracle| |

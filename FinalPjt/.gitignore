@@ -33,3 +33,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+
+### SSL Key ###
+cdjkeystore.pkcs12
+cdjtrust.pkcs12
