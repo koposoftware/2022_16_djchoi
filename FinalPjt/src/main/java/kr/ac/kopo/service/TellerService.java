@@ -93,9 +93,9 @@ public class TellerService {
 	
 	// 신분증 체크
 	public String checkId(String fileName) {
-		String apiURL = "https://x5ajwa9pew.apigw.ntruss.com/custom/v1/18232/134483fe7f4fb523bdff55fa061732c692fd41bde03b4957ba69dd8350aeb7d1/general";
-		String secretKey = "QnBLb3hWREVFd2hBeE9JZFZGcU9wY2dIeGVwWVJKbWs=";
-		String imageFile = "C://Users/DA/Downloads/" + fileName + ".png";
+		String apiURL = "apiURL 입력";
+		String secretKey = "secretKey 입력";
+		String imageFile = "파일경로" + fileName + ".png";
 		
 		try {
 			URL url = new URL(apiURL);
