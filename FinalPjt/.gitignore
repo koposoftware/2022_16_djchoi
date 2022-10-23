@@ -36,5 +36,4 @@ build/
 
 
 ### SSL Key ###
-cdjkeystore.pkcs12
-cdjtrust.pkcs12
+*.pkcs12
