@@ -81,14 +81,13 @@
 본인 소개를 추가하세요
 
 |이름 |최덕재|![choi](/Img/사진.jpg)|
-|연락처 | 202260341022(@)kopo.ac.kr| |
+|연락처 | 202260341022(@)office.kopo.ac.kr| |
 |skill set| Frontend - HTML, CSS, Javascript| |
 | | Backend - Java, Python, Oracle| |
 |자격증| SQLD(2022년) | |
 |수상| 2022년 제6회 벤처창업아이템경진대회-입선<br>(고용노동부 후원)  | |
 | | 2022년 교내 프로젝트작품 경진대회-금상| |
 |경력사항|  광주은행 인턴(2021.01 - 2021.02) | |
-|특기사항|  FIFAONLINE 수준급 실력 | |
-|| LeageOfLegends 8년째 꾸준히 노력 중  | |
+|특기사항|  | |
 
 
